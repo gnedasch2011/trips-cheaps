@@ -20,6 +20,8 @@ class SitemapUrlHelper extends Model
     public static function getAllUrls()
     {
 
+        
+
         if (!$res = \Yii::$app->cache->get('allUrls')) {
             $res = [];
 

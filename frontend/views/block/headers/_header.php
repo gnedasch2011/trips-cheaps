@@ -1,6 +1,7 @@
 <?php
 use frontend\modules\search\form\SearchQuery;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 $SearchQuery = new SearchQuery();
 
@@ -32,9 +33,7 @@ $SearchQuery = new SearchQuery();
 
             <?php
 
-            use yii\widgets\ActiveForm;
-
-            $form = ActiveForm::begin([
+            $form = \yii\widgets\ActiveForm::begin([
                 'action' => '/rhyme/index',
                 'options' => ['class' => 'navbar-form navbar-left'],
             ]) ?>
