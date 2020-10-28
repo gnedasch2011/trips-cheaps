@@ -14,6 +14,8 @@ class DefaultController extends Controller
 
     public function actionGetTikets()
     {
+//        $json = json_decode(file_get_contents('http://api.travelpayouts.com/data/ru/airlines.json'), true);
+
         /*currency — валюта цен на билеты. Значение по умолчанию — rub.
 origin — пункт отправления. IATA-код города. Длина — 3 символа. Значение по умолчанию — LED.
 destination — пункт назначения. IATA-код города. Длина — 3 символа. Значение по умолчанию — HKT.
@@ -29,8 +31,8 @@ trip_duration — длительность пребывания в неделя�
             'origin' => 'MOW',
             'destination' => 'IST',
             'show_to_affiliates' => true,
-            'month' => "2020-11-7",
-            'trip_duration' => 1,
+            'month' => "2020-11-01",
+            'trip_duration' => 7,
             'token' => self::TOKEN,
         ];
 
