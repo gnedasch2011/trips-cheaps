@@ -24,7 +24,6 @@ return [
             'class' => 'frontend\modules\api\tickets\aviasales\Module',
         ],
 
-
     ],
     'components' => [
         'request' => [
