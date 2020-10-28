@@ -1,0 +1,120 @@
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081706.200.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081625.404.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081620.404.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081557.404.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081528.404.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081520.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081502.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081423.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081342.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081334-1.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default/view
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081334.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081332.500.html
+
+###
+
+GET http://trips-cheaps.loc/aviasales/default
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081331.500.html
+
+###
+
+GET http://trips-cheaps.loc/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081317.200.html
+
+###
+
+GET http://trips-cheaps.loc/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-10-28T081316.200.html
+
+###
+

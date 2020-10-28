@@ -20,11 +20,16 @@ return [
             'class' => 'yii\debug\Module',
             'allowedIPs' => ['127.0.0.1']
         ],
+        'aviasales' => [
+            'class' => 'frontend\modules\api\tickets\aviasales\Module',
+        ],
+
+
     ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-              'enableCsrfValidation' => false,
+            'enableCsrfValidation' => false,
         ],
         'user' => [
             'identityClass' => 'common\models\User',
