@@ -26,15 +26,24 @@ month — первый день месяца, в формате «YYYY-MM-DD». 
 trip_duration — длительность пребывания в неделях. Если не указано, то в результате будут билеты в одну сторону
         */
 
-        $param = [
-            'currency' => 'rub',
-            'origin' => 'MOW',
-            'destination' => 'IST',
-            'show_to_affiliates' => true,
-            'month' => "2020-11-01",
-            'trip_duration' => 7,
-            'token' => self::TOKEN,
-        ];
+
+        for ($i = 1; $i <= 12; $i++) {
+            $param = [
+                'currency' => 'rub',
+                'origin' => 'MOW',
+                'destination' => 'IST',
+                'show_to_affiliates' => true,
+                'month' => "2021-{$i}-01",
+//            'trip_duration' => 7,
+                'token' => self::TOKEN,
+            ];
+
+
+            $aviasales = Aviasales::getTicketsMonthMatrix($param);
+            echo "<pre>";
+            print_r($aviasales);
+        }
+        die();
 
         $aviasales = Aviasales::getTicketsMonthMatrix($param);
 
