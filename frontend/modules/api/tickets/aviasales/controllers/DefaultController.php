@@ -6,6 +6,7 @@ use frontend\modules\api\tickets\aviasales\model\Aviasales;
 use frontend\modules\api\tickets\model\Tickets;
 use Yii;
 use yii\web\Controller;
+use thewulf7\travelPayouts\Travel;
 
 
 class DefaultController extends Controller
@@ -29,19 +30,19 @@ trip_duration — длительность пребывания в неделя�
 
         $origin = 'MOW';
         $destination = 'IST';
-        $monthArr  = [
-            1=>'01',
-            2=>'02',
-            3=>'03',
-            4=>'04',
-            5=>'05',
-            6=>'06',
-            7=>'07',
-            8=>'08',
-            9=>'09',
-            10=>'10',
-            11=>'11',
-            12=>'12',
+        $monthArr = [
+            1 => '01',
+            2 => '02',
+            3 => '03',
+            4 => '04',
+            5 => '05',
+            6 => '06',
+            7 => '07',
+            8 => '08',
+            9 => '09',
+            10 => '10',
+            11 => '11',
+            12 => '12',
         ];
 
 
@@ -74,9 +75,11 @@ trip_duration — длительность пребывания в неделя�
 
             $aviasales[] = Aviasales::getSendCUrl($param);
         }
-        
-        
-        echo "<pre>"; print_r($aviasales);die();
+
+
+        echo "<pre>";
+        print_r($aviasales);
+        die();
 
         die();
 
@@ -109,12 +112,42 @@ trip_duration — длительность пребывания в неделя�
         die();
     }
 
-
-    public function actionMainPage()
+    public function actionGetFlightService()
     {
+        //$travel = new thewulf7\travelPayouts\Travel(self::TOKEN);
+        $travel = new Travel(self::TOKEN);
 
+        $ticketService = $travel->getTicketService();
+        echo "<pre>"; print_r($ticketService);die();
+
+        $origin = "MOW";
+        $destination = "IST";
+        $month = "2020-10-01";
+
+        $tickets = $travel->getMonthMatrix($origin, $destination, $month, $currency = 'rub', $show_to_affiliates = true);
+
+
+        echo "<pre>";
+        print_r($tickets);
+        die();
+
+        $flightService = $travel->getFlightService();
+        $flightService
+            ->setIp('127.0.0.1')
+            ->setHost('aviasales.ru')
+            ->setMarker('300849')
+            ->addPassenger('adults', 1)
+            ->addSegment('MOW', 'IST', '2021-07-22');
+
+        $searchData = $flightService->search('ru', 'Y');
+        echo "<pre>";
+        print_r($searchData);
+        die();
+        $searchResults = $flightService->getSearchResults($searchData['search_id']);
+        echo "<pre>";
+        print_r($searchResults);
+        die();
     }
-
 
 }
 
