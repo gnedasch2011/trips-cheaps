@@ -13,6 +13,7 @@ class DefaultController extends Controller
 {
 
     const TOKEN = '1172d141de167a3862ace465a176174e';
+    const MARKER = '300849';
 
     public function actionGetTikets()
     {
@@ -47,20 +48,6 @@ trip_duration — длительность пребывания в неделя�
 
 
         for ($i = 1; $i <= 12; $i++) {
-//            $param = [
-//                'url' => 'http://api.travelpayouts.com/v2/prices/month-matrix',
-//                'currency' => 'rub',
-//                'origin' => $origin,
-//                'destination' => $destination,
-//                'show_to_affiliates' => true,
-//                'month' => "2021-{$i}-01",
-////            'trip_duration' => 7,
-//                'token' => self::TOKEN,
-//                'currency' => 'rub',
-//                'show_to_affiliates' => true,
-//                'Accept-Encoding' => "gzip,%20deflate",
-//            ];
-
 
             $param = [
                 'url' => 'http://api.travelpayouts.com/v1/prices/cheap',
@@ -73,7 +60,13 @@ trip_duration — длительность пребывания в неделя�
             ];
 
 
-            $aviasales[] = Aviasales::getSendCUrl($param);
+            $aviasalesMonthes[] = Aviasales::getSendCUrl($param, false);
+        }
+
+        foreach ($aviasalesMonthes[0] as $aviasalesMonth) {
+            foreach ($aviasalesMonth as $tiket) {
+                Aviasales::createPartnerLink($tiket, $param);
+            }
         }
 
 
@@ -112,42 +105,25 @@ trip_duration — длительность пребывания в неделя�
         die();
     }
 
-    public function actionGetFlightService()
+
+    public function getMatrix()
     {
-        //$travel = new thewulf7\travelPayouts\Travel(self::TOKEN);
-        $travel = new Travel(self::TOKEN);
+        //            $param = [
+//                'url' => 'http://api.travelpayouts.com/v2/prices/month-matrix',
+//                'currency' => 'rub',
+//                'origin' => $origin,
+//                'destination' => $destination,
+//                'show_to_affiliates' => true,
+//                'month' => "2021-{$i}-01",
+////            'trip_duration' => 7,
+//                'token' => self::TOKEN,
+//                'currency' => 'rub',
+//                'show_to_affiliates' => true,
+//                'Accept-Encoding' => "gzip,%20deflate",
+//            ];
 
-        $ticketService = $travel->getTicketService();
-        echo "<pre>"; print_r($ticketService);die();
-
-        $origin = "MOW";
-        $destination = "IST";
-        $month = "2020-10-01";
-
-        $tickets = $travel->getMonthMatrix($origin, $destination, $month, $currency = 'rub', $show_to_affiliates = true);
-
-
-        echo "<pre>";
-        print_r($tickets);
-        die();
-
-        $flightService = $travel->getFlightService();
-        $flightService
-            ->setIp('127.0.0.1')
-            ->setHost('aviasales.ru')
-            ->setMarker('300849')
-            ->addPassenger('adults', 1)
-            ->addSegment('MOW', 'IST', '2021-07-22');
-
-        $searchData = $flightService->search('ru', 'Y');
-        echo "<pre>";
-        print_r($searchData);
-        die();
-        $searchResults = $flightService->getSearchResults($searchData['search_id']);
-        echo "<pre>";
-        print_r($searchResults);
-        die();
     }
 
 }
+
 

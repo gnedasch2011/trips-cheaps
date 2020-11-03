@@ -21,10 +21,8 @@ https://account.admitad.com/ru/webmaster/websites/1616323/offers/18153/
 
 //спарсить город на
 
+Парсим все
 
 
-Как часто меняются 
 
-CREATE TABLE `trips-cheaps`.`tickets` (
-  `id` INT NOT NULL,
-  PRIMARY KEY (`id`));
+Собираем базу, мы знаем, в какую дату, самый дешёвый трип и формируем из неё ссылки
